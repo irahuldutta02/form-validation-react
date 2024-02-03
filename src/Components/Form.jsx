@@ -5,7 +5,7 @@ import { validateEmail } from "../helper/validateEmail";
 import { validatePassword } from "../helper/validatePassword";
 
 export function Form() {
-  const { formData } = useContext(FromContext);
+  const { formData, setFormData } = useContext(FromContext);
   const [submitted, setSubmitted] = useState(false);
 
   const emailRef = useRef(null);
@@ -53,10 +53,24 @@ export function Form() {
       <div className="flex justify-center items-center w-[100vw] h-[100vh] p-4 ">
         {submitted && (
           <div className="mx-auto w-fit p-8 border flex justify-center items-center  border-gray-300 rounded-md sm:w-96">
-            <div className="w-full flex justify-center items-center">
+            <div className="w-full flex justify-center items-center flex-col gap-4">
               <h1 className="text-2xl font-bold text-green-400 text-center">
                 Signed in successfully
               </h1>
+              <p className="text-white">Email: {formData.email}</p>
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded-md"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSubmitted(false);
+                  setFormData({
+                    email: "",
+                    password: "",
+                  });
+                }}
+              >
+                Logout
+              </button>
             </div>
           </div>
         )}
