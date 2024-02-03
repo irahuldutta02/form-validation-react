@@ -56,7 +56,9 @@ const Input = forwardRef(function InputComponent(
         value={formData[name]}
         name={name}
         onBlur={() => {
-          onBlurEvent(name);
+          if (formData[name] !== "") {
+            onBlurEvent(name);
+          }
         }}
         onChange={(e) => {
           setFormData({
