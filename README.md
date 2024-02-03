@@ -10,7 +10,7 @@
 
 ## Description
 
-### This is a simple form validation project in React to practice useRef and to do dom operations using refs. 🚀
+### This is a simple form validation project in React to practice useRef and useImperativeHandle hooks. 🚀
 - email validation and password validation is there ✉️🔒
 - error message will be shown if the input is invalid and a error animation will be shown 🚨💫
 
@@ -44,5 +44,6 @@ npm run dev
 ### Hooks used
 - useState
 - useRef
-- useContex
+- useImperativeHandle
+- useContext
 - useEffect
